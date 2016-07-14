@@ -1,0 +1,19 @@
+.search {
+  box-sizing: border-box;
+  background-color: #fff;
+  .result {
+    width: 100%;
+    height: auto;
+    display: block;
+    img {
+      display: block;
+      width: 90%;
+      margin: 10px auto;
+    }
+    h3 {
+      display: inline-block;
+      float: right;
+    }
+
+  }
+}

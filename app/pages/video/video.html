@@ -1,0 +1,19 @@
+
+<ion-header>
+  <ion-navbar>
+      <ion-title>
+          {{video.snippet.title}}
+      </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+    <div class="image-left embed-video">
+        <div class="videoWrapper">
+            <iframe width="100%" height="300px" [src]="videoURL" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p>{{video.snippet.description}}</p>
+    </div>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Search Youtube</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+  <ion-content padding>
+    <div class="search">
+    <ion-searchbar (input)="search($event)"></ion-searchbar>
+
+      <div class="result"
+      *ngFor="let video of results"
+      let i = "index"      >
+        <img [src]="video.snippet.thumbnails.high.url">
+        <h3 (click)="selectVideo(video)">{{video.snippet.title.substring(0, 30)}}...</h3>
+        <p>{{video.snippet.description.substring(0, 80)}}</p>
+      </div>
+      </div>
+  </ion-content>
+
+<style>
+  img {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+  }
+</style>
