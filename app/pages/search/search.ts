@@ -6,32 +6,46 @@ import { SearchResult } from '../../models/searchResults';
 import { VideoPage } from '../video/video';
 
 
-/*
-  Generated class for the SearchPage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   templateUrl: 'build/pages/search/search.html',
   providers: [YoutubeService]
 })
+
+
 export class SearchPage {
   results: SearchResult[];
 
+  /**
+   * Inject dependencies
+   * @param nav
+   * @param youtube
+     */
   constructor(private nav: NavController,private youtube: YoutubeService) {
   }
 
+  /**
+   * If input value is changed, this method is fired.
+   * it will store current value in query, and if query.length > 2
+   * the method will call the api and get results and store in results
+   * property
+   * @param search
+     */
   search(search) {
     let query = search.target.value;
     //Limit query to three chracters or more
     if (query.trim() == '' || query.trim().length > 2) {
-      // Get the searched users from github
+      // get videos
       this.youtube.search(query)
         .then(res => this.results = res);
     }
   }
 
+  /**
+   * if item img or title is clicked, the video object
+   * is passed in and sent to the video page through
+   * ionic router
+   * @param video
+     */
   selectVideo(video){
     this.nav.push(VideoPage, {
       video: video

@@ -9,10 +9,8 @@
     <div class="search">
     <ion-searchbar (input)="search($event)"></ion-searchbar>
 
-      <div class="result"
-      *ngFor="let video of results"
-      let i = "index"      >
-        <img [src]="video.snippet.thumbnails.high.url">
+      <div class="result" *ngFor="let video of results">
+        <img (click)="selectVideo(video)" [src]="video.snippet.thumbnails.high.url">
         <h3 (click)="selectVideo(video)">{{video.snippet.title.substring(0, 30)}}...</h3>
         <p>{{video.snippet.description.substring(0, 80)}}</p>
       </div>
